@@ -28,7 +28,7 @@ final class FlickrTests: XCTestCase {
         let formatted = sut?.formatted()
         
         //then
-        assert(formatted == "06/17 - 01h01") //Timezone difference
+        assert(formatted == "17/06 - 01h01") //Timezone difference
     }
     
     func testConversionOtherFormat() throws {

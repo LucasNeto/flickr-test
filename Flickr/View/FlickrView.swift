@@ -20,7 +20,7 @@ struct FlickrView: View {
                 if(viewModel.isLoading) {
                     ProgressView()
                 } else {
-                    LazyVGrid(columns: columns, spacing: 20) {
+                    LazyVGrid(columns: columns) {
                         ForEach(viewModel.items, id: \.self) { item in
                             NavigationLink{
                                 FlickrDetailView(item: item)}
@@ -29,6 +29,17 @@ struct FlickrView: View {
                         }
                             
                         }
+                    }
+                    if(viewModel.items.isEmpty) {
+                        VStack {
+                            Text("Não encontramos resultado com essa pesquisa.")
+                                .font(.title)
+                            Text(viewModel.errorMessage)
+                                .font(.caption)
+                                .padding()
+                        }
+                        .padding()
+                            
                     }
                 }
                 

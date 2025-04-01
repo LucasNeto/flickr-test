@@ -23,7 +23,3 @@ struct FlickrItem: Identifiable, Codable, Hashable {
         return lhs.link == rhs.link
     }
 }
-
-struct FlickrMedia: Codable, Hashable {
-    let m: String?
-}

@@ -16,6 +16,14 @@ extension String {
     }
     
     func formatted() -> String {
-        return dateFormat(format: "MM/dd - HH'h'mm")
+        return dateFormat(format: "dd/MM - HH'h'mm")
+    }
+    
+    var htmlFormatted: String? {
+        do {
+            return try NSAttributedString(data: Data(utf8), options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+        } catch {
+            return  nil
+        }
     }
 }

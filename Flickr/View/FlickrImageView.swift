@@ -19,18 +19,21 @@ struct FlickrImageView: View {
                 case .success(let image):
                     image.resizable()
                          .aspectRatio(contentMode: .fit)
-                         .frame(maxWidth: 200, maxHeight: 200)
                 case .failure:
-                    Image(systemName: "photo")
+                    Image("empty")
+                        .aspectRatio(contentMode: .fit)
                 @unknown default:
-                    EmptyView()
+                    Image("empty")
+                        .aspectRatio(contentMode: .fit)
                 }
             }
+            .frame(idealHeight: 200)
+            .padding()
         }
     }
 }
 
 
 #Preview {
-    FlickrImageView()
+    FlickrImageView(url: "https://live.staticflickr.com/65535/54425278735_f90aa9e8d4_m.jpg")
 }

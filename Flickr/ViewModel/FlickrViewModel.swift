@@ -12,17 +12,20 @@ class FlickrViewModel {
     var items = [FlickrItem]()
     var searchText = ""
     var isLoading = false
+    var errorMessage = ""
     private let service = FlickrService()
     
     func runSearch() {
+        errorMessage = ""
         isLoading = true
         service.searchText(searchText) { [weak self] result in
             self?.isLoading = false
             switch result {
             case .success(let response):
                 self?.items = response.items ?? []
-            default:
-                break
+            case .failure(let error):
+                self?.items = []
+                self?.errorMessage = error.localizedDescription
             }
         }
     }
