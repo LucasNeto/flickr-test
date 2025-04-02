@@ -29,11 +29,12 @@ struct FlickrDetailView: View {
                     Text("Author:").font(.headline)
                     Text(viewModel.item.author ?? "")
                     Text("Date Taken:").font(.headline)
-                    Text(viewModel.item.date_taken?.formatted() ?? "")
+                    Text(viewModel.item.date_taken?.dateFormatted ?? "")
                     Text("Published date:").font(.headline)
-                    Text(viewModel.item.published?.formatted() ?? "")
+                    Text(viewModel.item.published?.dateFormatted ?? "")
                     Spacer(minLength: 36)
-                    Text(viewModel.item.description?.htmlFormatted ?? "")
+                    Text("Description:").font(.headline)
+                    Text(viewModel.item.description ?? "").font(.caption)
                     Spacer(minLength: 36)
                     Button {
                         if let url = URL(string: viewModel.item.link ?? "") {

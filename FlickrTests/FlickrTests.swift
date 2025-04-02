@@ -25,7 +25,7 @@ final class FlickrTests: XCTestCase {
         sut = "2024-06-17T04:01:01Z"
         
         //when
-        let formatted = sut?.formatted()
+        let formatted = sut?.dateFormatted
         
         //then
         assert(formatted == "17/06 - 01h01") //Timezone difference

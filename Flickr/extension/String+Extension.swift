@@ -15,15 +15,7 @@ extension String {
         return dateFormatter.string(from: date)
     }
     
-    func formatted() -> String {
+    var dateFormatted: String {
         return dateFormat(format: "dd/MM - HH'h'mm")
-    }
-    
-    var htmlFormatted: String? {
-        do {
-            return try NSAttributedString(data: Data(utf8), options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-        } catch {
-            return  nil
-        }
     }
 }
