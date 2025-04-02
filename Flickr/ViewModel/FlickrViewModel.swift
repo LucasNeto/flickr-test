@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class FlickrViewModel {
+@MainActor class FlickrViewModel {
     var items = [FlickrItem]()
     var searchText = ""
     var isLoading = false
